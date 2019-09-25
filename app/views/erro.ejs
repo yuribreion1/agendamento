@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="/stylesheets/uikit.min.css">
+    <script src="/javascripts/uikit.min.js"></script>
+    <script src="/javascripts/uikit-icons.min.js"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <title>Solicitações - Agendamentos FIAP</title>
+</head>
+
+<body class="uk-container">
+    <header class="uk-margin-bottom">
+        <div class="uk-card uk-card-primary uk-card-body">
+            <h3 class="uk-card-title">Solicitações - FIAP</h3>
+            <p>Sistema para agendamento e alerta de salas</p>
+        </div>
+        <nav class="uk-navbar-container" uk-navbar>
+            <div class="uk-navbar-left">
+
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="/">Home</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>Houve um erro</h1>
+        <table class="uk-table">
+            <thead>
+                <th>Campo</th>
+                <th>Mensagem</th>
+                <th>Valor</th>
+            </thead>
+            <tbody>
+                <% for(let e of erro) { %>
+                <tr>
+                        <td><%= e.param %></td>
+                        <td><%= e.msg %></td>
+                        <td><%= e.value %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+            
+        </table>
+    </main>
+</body>
+
+</html>

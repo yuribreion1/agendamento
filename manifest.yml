@@ -1,0 +1,5 @@
+---
+applications:
+  - name: agendamento-fiap
+    memory: 256M
+    instances: 1

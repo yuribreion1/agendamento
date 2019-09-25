@@ -1,0 +1,8 @@
+# Node modules
+node_modules
+
+# Local database setup
+vcap-local.json
+
+# Cache
+package-lock.json

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="/stylesheets/uikit.min.css">
+    <script src="/javascripts/uikit.min.js"></script>
+    <script src="/javascripts/uikit-icons.min.js"></script>
+    <script src="/javascripts/jquery.js"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <title>Autenticação - Agendamentos FIAP</title>
+</head>
+
+<body class="uk-container">
+    <header class="uk-margin-bottom">
+        <div class="uk-card uk-card-primary uk-card-body">
+            <h3 class="uk-card-title">Agendamento de salas - FIAP</h3>
+            <p>Cadastro de usuário</p>
+        </div>
+    </header>
+    <main>
+        <form action="/registrar" method="post" class="uk-margin-bottom">
+            <div class="uk-margin">
+                <legend class="uk-legend">Matricula:</legend>
+            </div>
+            <div class="uk-inline">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input class="uk-input" name="matricula" type="text">
+            </div>
+            <div class="uk-margin">
+                <legend class="uk-legend">Senha:</legend>
+                <div class="uk-inline">
+                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                    <input class="uk-input" name="senha" type="password">
+                </div>
+            </div>
+            <button class="uk-button uk-button-primary">Cadastrar</button>
+        </form>
+    </main>
+</body>
+
+</html>

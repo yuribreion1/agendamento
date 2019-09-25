@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="/stylesheets/uikit.min.css">
+    <script src="/javascripts/uikit.min.js"></script>
+    <script src="/javascripts/uikit-icons.min.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <title>Agendamentos FIAP</title>
+</head>
+
+<body class="uk-container">
+    <header class="uk-margin-bottom">
+        <div class="uk-card uk-card-primary uk-card-body">
+            <h3 class="uk-card-title">Agendamento de salas - FIAP</h3>
+            <p>Sistema para agendamento e alerta de salas</p>
+        </div>
+        <nav class="uk-navbar-container" uk-navbar>
+            <div class="uk-navbar-left">
+
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="/login">Home</a></li>
+                    <li>
+                        <a href="#">Solicitar</a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li><a href="/solicitar/material">Material</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">Consultar</a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li><a href="/consultar/sala">Sala</a></li>
+                                <li><a href="/consultar/material">Material</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        <form action="/solicitar/sala" class="uk-form" method="post">
+            <div class="uk-margin">
+                <legend class="uk-legend">Professor</legend>
+                <select name="professor" class="uk-select uk-form-width-medium" id="form-horizontal-select">
+                    <option value="allen">Allen</option>
+                    <option value="humberto">Humberto</option>
+                    <option value="camila">Camila</option>
+                    <option value="helder">Helder</option>
+                    <option value="cabral">Cabral</option>
+                    <option value="gabriela">Gabriela</option>
+                    <option value="lucas">Lucas</option>
+                    <option value="torrente">Torrente</option>
+                    <option value="ezequiel">Ezequiel</option>
+                    <option value="agessandro">Agessandro</option>
+                </select>
+            </div>
+            <div class="uk-margin">
+                <legend class="uk-legend">Sala</legend>
+                <select name="sala" id="" class="uk-select uk-form-width-medium" id="form-horizontal-select">
+                    <option value="201">201</option>
+                    <option value="202">202</option>
+                    <option value="203">203</option>
+                    <option value="204">204</option>
+                    <option value="301">301</option>
+                    <option value="302">302</option>
+                    <option value="303">303</option>
+                    <option value="304">304</option>
+                    <option value="401">401</option>
+                    <option value="402">402</option>
+                    <option value="403">403</option>
+                    <option value="404">404</option>
+                    <option value="501">501</option>
+                    <option value="502">502</option>
+                    <option value="503">503</option>
+                    <option value="504">504</option>
+                    <option value="601">601</option>
+                    <option value="602">602</option>
+                    <option value="603">603</option>
+                    <option value="604">604</option>
+                    <option value="701">701</option>
+                    <option value="702">702</option>
+                    <option value="703">703</option>
+                    <option value="704">704</option>
+                    <option value="801">801</option>
+                    <option value="802">802</option>
+                    <option value="803">803</option>
+                    <option value="804">804</option>
+                </select>
+            </div>
+            <div class="uk-margin">
+                <legend class="uk-legend">Data</legend>
+                <input type="date" name="data" id="" class="uk-input uk-form-width-medium" required>
+            </div>
+            <div class="uk-margin">
+                <legend class="uk-form-legend uk-legend" for="form-horizontal-select">Periodo</legend>
+                <div class="uk-form-controls">
+                    <select name="periodo" class="uk-select uk-form-width-medium" id="form-horizontal-select">
+                        <option value="manha">Manhã</option>
+                        <option value="tarde">Tarde</option>
+                        <option value="noite">Noite</option>
+                    </select>
+                </div>
+            </div>
+            <div class="uk-margin">
+                <legend class="uk-legend uk-margin">Parceiro/Clientes?</legend>
+                <div class="uk-form-controls">
+                    <select name="externo" class="uk-select uk-form-width-medium" id="form-horizontal-select">
+                        <option value="aula">Aula normal</option>
+                        <option value="cliente">Cliente</option>
+                        <option value="parceiro">Parceiro</option>
+                        <option value="visita">Visita externa</option>
+                    </select>
+                </div>
+            </div>
+            <div class="uk-margin">
+                <legend class="uk-legend">Quantidade de alunos</legend>
+                <input type="number" name="quantidade" class="uk-input uk-form-width-medium" required>
+            </div>
+            <button type="submit" class="uk-button uk-button-primary">Submeter</button>
+        </form>
+    </main>
+</body>
+
+</html>

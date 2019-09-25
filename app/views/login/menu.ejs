@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="/stylesheets/uikit.min.css">
+    <script src="/javascripts/uikit.min.js"></script>
+    <script src="/javascripts/uikit-icons.min.js"></script>
+    <script src="/javascripts/path.js"></script>
+    <script>
+        var cadastrado = getUrlParameter('cadastrado');
+        var removido = getUrlParameter('removido');
+        if (cadastrado == 'true') {
+            alert('Solicitação cadastrada com sucesso');
+        } 
+        if (removido == 'true') {
+            alert('Solicitação removida com sucesso');
+        }
+
+    </script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <title>Pagina inicial - Agendamentos FIAP</title>
+</head>
+
+<body class="uk-container">
+    <header class="uk-margin-bottom">
+        <div class="uk-card uk-card-primary uk-card-body">
+            <h3 class="uk-card-title">Agendamento - FIAP</h3>
+            <p>Sistema para agendamento e alerta de salas</p>
+        </div>
+    </header>
+    <main>
+        <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+            <div>
+                <a href="/solicitar/sala" class="uk-card uk-card-secondary uk-card-body">
+                        <h3 class="uk-card-title">Agendamento de sala</h3>
+                    <p>Encontre e reserve uma sala para sua aula</p>
+                </a>
+            </div>
+            <div>
+                <a href="/solicitar/material" class="uk-card uk-card-secondary uk-card-body">
+                    <h3 class="uk-card-title">Solitação de materiais</h3>
+                    <p>Canetas, projetores e demais itens</p>
+                </a>
+            </div>
+            <div>
+                <a href="/consultar/sala" class="uk-card uk-card-default uk-card-body">
+                    <h3 class="uk-card-title">Agendamentos de sala</h3>
+                    <p>Veja as solicitações já criadas para salas</p>
+                </a>
+                <a href="/consultar/material" class="uk-card uk-card-default uk-card-body uk-margin">
+                    <h3 class="uk-card-title">Agendamentos de material</h3>
+                    <p>Verifique os pedidos de materiais já feitos</p>
+                </a>
+            </div>
+        </div>
+    </main>
+    <a href="/" class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom uk-margin">Desconectar</a>
+</body>
+
+</html>
