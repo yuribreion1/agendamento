@@ -8,3 +8,5 @@
 - [Yuri Breion](https://github.com/yuribreion1)
 - [Carolina Barhum](https://github.com/cbarhum)
 - [Gabriel Kaminaga](https://github.com/gkaminaga)
+
+Nossa ideia é ter este projeto ativo usando Microsoft Azure
