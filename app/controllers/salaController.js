@@ -16,7 +16,15 @@ module.exports.removerSala = function (app, req, res) {
 }
 
 module.exports.solicitaSala = function (app, req, res) {
+    req.assert('data','Uma data deve ser fornecida').notEmpty();
     var solicitacao = req.body;
+    var erros = req.validationErrors();
+
+    if (erros) {
+        console.log(erros)
+        res.render('erro', { erro: erros })
+        return;
+    }
     solicitacao.solicitante = req.cookies.matricula
     var connection = app.infra.connectionFactory();
     var agendamentoDAO = new app.models.AgendamentoDAO(connection);
