@@ -5,4 +5,8 @@ module.exports = function (app) {
     app.post('/login', function (req, res) {
         app.controllers.loginController.login(app, req, res);
     })
+
+    app.post('/api/login', function (req, res) {
+        app.controllers.loginController.loginAPI(app, req, res);
+    })
 }
