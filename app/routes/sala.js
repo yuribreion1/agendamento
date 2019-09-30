@@ -11,8 +11,10 @@ module.exports = function (app) {
     app.get('/solicitar/sala', function (req, res) {
         res.render('solicitar/sala')
     })
-
     app.post('/solicitar/sala', function (req, res) {
         app.controllers.salaController.solicitaSala(app, req, res);
+    })
+    app.post('/api/solicitar/sala', function (req, res) {
+        app.controllers.salaController.solicitaSalaAPI(app, req, res);
     })
 }

@@ -26,6 +26,7 @@ module.exports.solicitaSala = function (app, req, res) {
         return;
     }
     solicitacao.solicitante = req.cookies.matricula
+    console.log(solicitacao)
     var connection = app.infra.connectionFactory();
     var agendamentoDAO = new app.models.AgendamentoDAO(connection);
     agendamentoDAO.insere(solicitacao, function (err, data) {
@@ -86,7 +87,7 @@ module.exports.consultaAgendamentoAPI = function (app, req, res) {
     var usuario = req.cookies.matricula;
     var connection = app.infra.connectionFactory();
     var agendamentoDAO = new app.models.AgendamentoDAO(connection);
-    agendamentoDAO.lista(usuario, function (err, data) {
+    agendamentoDAO.listaAdmin(function (err, data) {
         var retornoDb = data.fetchAllSync({
             fetchMode: 4
         });
@@ -98,6 +99,21 @@ module.exports.consultaAgendamentoAPI = function (app, req, res) {
             })
         } else {
             res.send("<h1>Houve um erro</h1>")
+        }
+    })
+    connection.close(function (err) {});
+}
+
+module.exports.solicitaSalaAPI = function (app, req, res) {
+    var solicitacao = req.body;
+    var connection = app.infra.connectionFactory();
+    var agendamentoDAO = new app.models.AgendamentoDAO(connection);
+    agendamentoDAO.insere(solicitacao, function (err, data) {
+        if (!err) {
+            res.status(200).json( { cadastrado: true, msg: 'Sala solicitada com sucesso' } )
+        } else {
+            console.log(err)    
+            res.status(403).json( { cadastrado: false, msg: 'Solicitação não realizada, favor corrigir' })
         }
     })
     connection.close(function (err) {});

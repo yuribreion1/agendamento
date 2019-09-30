@@ -17,4 +17,7 @@ module.exports = function (app) {
     app.get('/api/consultar/material', function (req, res) {
         app.controllers.materialController.consultaMaterialAPI(app, req, res);
     })
+    app.post('/api/solicitar/material', function (req, res) {
+        app.controllers.materialController.solicitaMaterialAPI(app, req, res);
+    })
 }

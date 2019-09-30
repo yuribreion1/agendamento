@@ -56,10 +56,9 @@ module.exports.consultaMaterial = function (app, req, res) {
 }
 
 module.exports.consultaMaterialAPI = function (app, req, res) {
-    var usuario = req.cookies.matricula;
     var connection = app.infra.connectionFactory();
     var materialDAO = new app.models.MaterialDAO(connection);
-    materialDAO.lista(usuario, function (err, data) {
+    materialDAO.listaAdmin(function (err, data) {
         var retornoDb = data.fetchAllSync({
             fetchMode: 4
         });
@@ -81,6 +80,7 @@ module.exports.solicitaMaterial = function (app, req, res) {
     solicitacao.solicitante = req.cookies.matricula
     var connection = app.infra.connectionFactory();
     var materialDAO = new app.models.MaterialDAO(connection);
+    console.log(solicitacao);
     materialDAO.insere(solicitacao, function (err, data) {
         if (!err) {
             console.log('Material solicitado com sucesso');
@@ -90,6 +90,20 @@ module.exports.solicitaMaterial = function (app, req, res) {
             res.status(404).render('erro', {
                 erro: err
             });
+        }
+    })
+    connection.close(function (err) {});
+}
+
+module.exports.solicitaMaterialAPI = function (app, req, res) {
+    var solicitacao = req.body;
+    var connection = app.infra.connectionFactory();
+    var materialDAO = new app.models.MaterialDAO(connection);
+    materialDAO.insere(solicitacao, function (err, data) {
+        if (!err) {
+            res.status(200).json( { cadastrado: true, msg: 'Material solicitada com sucesso' } )
+        } else {
+            res.status(403).json( { cadastrado: false, msg: 'Solicitação não realizada, favor corrigir' })
         }
     })
     connection.close(function (err) {});
