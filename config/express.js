@@ -21,7 +21,15 @@ module.exports = () => {
     app.use(bodyParser.json());
     app.use(cookieParser());
 
-    appInsights.setup(key).start();
+    appInsights.setup(key).start()
+        .setAutoDependencyCorrelation(true)
+        .setAutoCollectRequests(true)
+        .setAutoCollectPerformance(true, true)
+        .setAutoCollectExceptions(true)
+        .setAutoCollectDependencies(true)
+        .setAutoCollectConsole(true)
+        .setUseDiskRetryCaching(true)
+        .setSendLiveMetrics(true)
     
     consign( 
         {   cwd: 'app', 
